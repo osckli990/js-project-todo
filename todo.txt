@@ -1,0 +1,4 @@
+full site view - white and black
+implement local storage
+all - completed - uncompleted
+date and date-stamp on card

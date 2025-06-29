@@ -1,5 +1,10 @@
+import "@fontsource/roboto/300.css";
+import "@fontsource/roboto/400.css";
+import "@fontsource/roboto/500.css";
+import "@fontsource/roboto/700.css";
+
+import { Card } from "./components/Card";
+
 export const App = () => {
-  return (
-    <h1>React Boilerplate</h1>
-  )
-}
+  return <Card />;
+};

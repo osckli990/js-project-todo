@@ -2,8 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-import '@fontsource/roboto/500.css';
-
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
 }
