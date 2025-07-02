@@ -3,9 +3,9 @@ import { create } from "zustand";
 const InitialState = {
   tasks: [
     {
-      id: 1,
-      message: "hi",
-      date: "now",
+      id: Date.now(),
+      message: "I need to do something!",
+      date: new Date().toLocaleString(),
     },
   ],
 };
