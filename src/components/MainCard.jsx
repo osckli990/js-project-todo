@@ -1,3 +1,4 @@
+import { NewTaskIcon } from "./NewTaskIcon";
 import { TaskCard } from "./TaskCard";
 
 export const MainCard = () => {
@@ -8,6 +9,7 @@ export const MainCard = () => {
         <h1>day</h1>
       </main>
       <TaskCard />
+      <NewTaskIcon />
     </>
   );
 };

@@ -1,9 +1,17 @@
+import { TaskContentStore } from "../stores/TaskContentStore";
+
 export const TaskList = () => {
+  const tasks = TaskContentStore((state) => state.tasks);
+
   return (
-    <div>
-      <input type="checkbox" />
-      <p>title</p>
-      <p>date and time</p>
-    </div>
+    <>
+      {tasks.map((task) => (
+        <div key={task.id}>
+          <input type="checkbox" />
+          <p>{task.message}</p>
+          <p>{task.date}</p>
+        </div>
+      ))}
+    </>
   );
 };
