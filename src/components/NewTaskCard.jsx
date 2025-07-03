@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { TaskContentStore } from "../stores/TaskContentStore";
 import { UseUIStore } from "../stores/UseUIStore";
+/*falsely flagged as error by vscode */
 
 export const NewTaskCard = () => {
   const [message, setMessage] = useState("");
@@ -16,7 +17,7 @@ export const NewTaskCard = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex gap-4 flex-col md:w-full">
       <textarea
         id="tasks"
         value={message}
@@ -24,9 +25,11 @@ export const NewTaskCard = () => {
         onKeyDown={(e) => setMessage(e.target.value)}
         /*above is remain of trying to submit on enter key, help would be appreciated */
         placeholder="Your task"
-        className="w-full p-2 rounded border border-zinc-300 focus:outline-none"
+        className="flex  gap-2 w-full p-2 rounded border border-zinc-300 focus:outline-none"
       />
-      <button type="submit">Send</button>
+      <button type="submit" className="hover:scale-105">
+        Send
+      </button>
     </form>
   );
 };

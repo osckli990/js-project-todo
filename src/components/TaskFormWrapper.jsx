@@ -30,7 +30,7 @@ export const TaskFormWrapper = () => {
 
       {/* Form Wrapper */}
       <div
-        className={`transform transition-all duration-300 ease-in-out
+        className={`md:w-4/6 transform transition-all duration-300 ease-in-out
           fixed bottom-[40px] right-4 w-64 rounded-xl shadow-xl 
           bg-zinc-700 p-4
           ${

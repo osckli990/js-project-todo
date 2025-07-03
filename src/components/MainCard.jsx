@@ -22,9 +22,11 @@ export const MainCard = () => {
   return (
     <main className="bg-zinc-900 text-white flex flex-col px-[20px] py-[40px] w-full">
       <section className="w-full">
-        <p className="text-sm text-zinc-400">{formattedDate}</p>
-        <h1 className="text-3xl font-bold">{dayName}</h1>
-        <p className="text-sm text-zinc-400">Amount of tasks: {taskCount}</p>
+        <p className="text-sm md:text-2xl text-zinc-400">{formattedDate}</p>
+        <h1 className="text-3xl md:text-7xl font-bold">{dayName}</h1>
+        <p className="text-sm md:text-2xl text-zinc-400">
+          Amount of tasks: {taskCount}
+        </p>
       </section>
       <div className="mt-6 w-full">
         <TaskCard />
