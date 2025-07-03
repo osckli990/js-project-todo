@@ -1,24 +1,43 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { NewTaskCard } from "./NewTaskCard";
 import { NewTaskIcon } from "./NewTaskIcon";
+import { UseUIStore } from "../stores/UseUIStore";
 
 export const TaskFormWrapper = () => {
-  const [isVisible, setIsVisible] = useState(false);
+  const formVisible = UseUIStore((state) => state.formVisible);
+  const toggleForm = UseUIStore((state) => state.toggleForm);
+  const closeForm = UseUIStore((state) => state.closeForm);
 
-  const toggleForm = () => {
-    setIsVisible((prev) => !prev);
-  };
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") {
+        closeForm();
+      }
+    };
+
+    if (formVisible) {
+      window.addEventListener("keydown", handleKeyDown);
+    }
+
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [formVisible, closeForm]);
 
   return (
-    <div className="fixed bottom-4 right-4">
-      {/* Button */}
+    <div className="fixed bottom-4 right-4 z-50">
       <NewTaskIcon onClick={toggleForm} />
 
-      {/* Slide-up form */}
+      {/* Form Wrapper */}
       <div
-        className={`transition-transform duration-300 ease-in-out ${
-          isVisible ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
-        } fixed bottom-16 right-4 bg-white p-4 shadow-xl rounded-xl w-64`}
+        className={`transform transition-all duration-300 ease-in-out
+          fixed bottom-[40px] right-4 w-64 rounded-xl shadow-xl 
+          bg-zinc-700 p-4
+          ${
+            formVisible
+              ? "translate-y-0 opacity-100 pointer-events-auto"
+              : "translate-y-10 opacity-0 pointer-events-none"
+          }`}
       >
         <NewTaskCard />
       </div>
